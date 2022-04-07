@@ -1,0 +1,857 @@
+{
+	"info": {
+		"_postman_id": "321c36d6-9316-4f3f-af8a-f659bc5f7562",
+		"name": "Car Park Mock Project",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Employee",
+			"item": [
+				{
+					"name": "view All Employee",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/CarPark/HRM/viewAllEmployee",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"CarPark",
+								"HRM",
+								"viewAllEmployee"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "view Employee By ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/CarPark/HRM/viewEmployee/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"CarPark",
+								"HRM",
+								"viewEmployee",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add employee 1",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"account\":\"phandien\",\r\n    \"department\": \"EC\",\r\n    \"employeeAddress\": \"\",\r\n    \"employeeBirthDay\": \"\",\r\n    \"employeeEmail\": \"\",\r\n    \"employeeName\": \"Phan Khac Dien\",\r\n    \"employeePhone\": \"0987654321\",\r\n    \"password\": \"123456789\",\r\n    \"genre\": \"Male\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/CarPark/HRM/addEmployee",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"CarPark",
+								"HRM",
+								"addEmployee"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add employee 2",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"account\":\"phamtuan\",\r\n    \"department\": \"EC\",\r\n    \"employeeAddress\": \"\",\r\n    \"employeeBirthDay\": \"\",\r\n    \"employeeEmail\": \"phamtuan@gmail.com\",\r\n    \"employeeName\": \"Pham Hoang Tuan\",\r\n    \"employeePhone\": \"0987654322\",\r\n    \"password\": \"123456789\",\r\n    \"genre\": \"Male\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/CarPark/HRM/addEmployee",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"CarPark",
+								"HRM",
+								"addEmployee"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add employee to test Validation",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"account\":\"\",\r\n    \"department\": \"\",\r\n    \"employeeAddress\": \"\",\r\n    \"employeeBirthDay\": \"\",\r\n    \"employeeEmail\": \"\",\r\n    \"employeeName\": \"\",\r\n    \"employeePhone\": \"\",\r\n    \"password\": \"\",\r\n    \"genre\": \"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/CarPark/HRM/addEmployee",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"CarPark",
+								"HRM",
+								"addEmployee"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Car",
+			"item": [
+				{
+					"name": "view",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/CarPark/CarManager/view",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"CarPark",
+								"CarManager",
+								"view"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add car 1",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"licensePlate\": \"29H1-9999\",\r\n    \"carColor\": \"Red\",\r\n    \"carType\": \"Sedan\",\r\n    \"company\": \"Porsche\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/CarPark/CarManager/add",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"CarPark",
+								"CarManager",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add car 2",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"licensePlate\": \"29H1-8888\",\r\n    \"carColor\": \"Black\",\r\n    \"carType\": \"Sedan\",\r\n    \"company\": \"Porsche\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/CarPark/CarManager/add",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"CarPark",
+								"CarManager",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add car 3",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"licensePlate\": \"29H1-7777\",\r\n    \"carColor\": \"White\",\r\n    \"carType\": \"Sedan\",\r\n    \"company\": \"Lambogini\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/CarPark/CarManager/add",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"CarPark",
+								"CarManager",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "assign Parking Lot for Car 1",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/CarPark/CarManager/selectParkingLot/2/for/29H1-9999",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"CarPark",
+								"CarManager",
+								"selectParkingLot",
+								"2",
+								"for",
+								"29H1-9999"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "assign Parking Lot for Car 2",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/CarPark/CarManager/selectParkingLot/2/for/29H1-8888",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"CarPark",
+								"CarManager",
+								"selectParkingLot",
+								"2",
+								"for",
+								"29H1-8888"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "assign Parking Lot for Car 3",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/CarPark/CarManager/selectParkingLot/1/for/29H1-7777",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"CarPark",
+								"CarManager",
+								"selectParkingLot",
+								"1",
+								"for",
+								"29H1-7777"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Parking Lot",
+			"item": [
+				{
+					"name": "view",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/CarPark/ParkingLotManager/view",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"CarPark",
+								"ParkingLotManager",
+								"view"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add Parking Lot B1",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"parkArea\": 1,\r\n    \"parkName\": \"CenterPoint\",\r\n    \"parkPlace\": \"B1\",\r\n    \"parkPrice\": \"\",\r\n    \"parkStatus\": \"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/CarPark/ParkingLotManager/add",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"CarPark",
+								"ParkingLotManager",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add Parking Lot B2",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"parkArea\": 1,\r\n    \"parkName\": \"CenterPoint\",\r\n    \"parkPlace\": \"B2\",\r\n    \"parkPrice\": \"\",\r\n    \"parkStatus\": \"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/CarPark/ParkingLotManager/add",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"CarPark",
+								"ParkingLotManager",
+								"add"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Ticket",
+			"item": [
+				{
+					"name": "add ticket 1",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"bookingTime\": \"\",\r\n    \"customerName\": \"Dinh Van Toi\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/CarPark/TicketManager/add",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"CarPark",
+								"TicketManager",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "assigned Car for ticket 1",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"bookingTime\": \"\",\r\n    \"customerName\": \"Dinh Van Toi\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/CarPark/TicketManager/selectCar/29H1-8888/for/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"CarPark",
+								"TicketManager",
+								"selectCar",
+								"29H1-8888",
+								"for",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "assigned Trip for ticket 1",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"bookingTime\": \"\",\r\n    \"customerName\": \"Dinh Van Toi\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/CarPark/TicketManager/selectTrip/1/for/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"CarPark",
+								"TicketManager",
+								"selectTrip",
+								"1",
+								"for",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add ticket 2",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"bookingTime\": \"\",\r\n    \"customerName\": \"Luong Phu Khanh\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/CarPark/TicketManager/add",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"CarPark",
+								"TicketManager",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "assigned Car for ticket 2",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"bookingTime\": \"\",\r\n    \"customerName\": \"Dinh Van Toi\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/CarPark/TicketManager/selectCar/29H1-9999/for/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"CarPark",
+								"TicketManager",
+								"selectCar",
+								"29H1-9999",
+								"for",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "assigned Trip for ticket 2",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"bookingTime\": \"\",\r\n    \"customerName\": \"Dinh Van Toi\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/CarPark/TicketManager/selectTrip/2/for/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"CarPark",
+								"TicketManager",
+								"selectTrip",
+								"2",
+								"for",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "view",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/CarPark/TicketManager/view",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"CarPark",
+								"TicketManager",
+								"view"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/CarPark/TicketManager/delete/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"CarPark",
+								"TicketManager",
+								"delete",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Trip",
+			"item": [
+				{
+					"name": "view",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/CarPark/TripManager/view",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"CarPark",
+								"TripManager",
+								"view"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add Trip 1",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"bookedTicketNumber\": \"\",\r\n    \"carType\": \"SUV\",\r\n    \"departureDate\": \"\",\r\n    \"departureTime\": \"\",\r\n    \"destination\": \"ĐN\",\r\n    \"driver\": \"Smith\",\r\n    \"maximumOnlineTicketNumber\": \"5\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/CarPark/TripManager/add",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"CarPark",
+								"TripManager",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add Trip 2",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"bookedTicketNumber\": \"\",\r\n    \"carType\": \"Limousine\",\r\n    \"departureDate\": \"\",\r\n    \"departureTime\": \"\",\r\n    \"destination\": \"SG\",\r\n    \"driver\": \"Jonh\",\r\n    \"maximumOnlineTicketNumber\": \"7\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/CarPark/TripManager/add",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"CarPark",
+								"TripManager",
+								"add"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Booking office",
+			"item": [
+				{
+					"name": "view List Booking Office",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/CarPark/BookingOfficeManager/viewAllBookingList",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"CarPark",
+								"BookingOfficeManager",
+								"viewAllBookingList"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "assignTripForBookingOffice",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/CarPark/BookingOfficeManager/selectTrip/2/for/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"CarPark",
+								"BookingOfficeManager",
+								"selectTrip",
+								"2",
+								"for",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add office 1",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"startContractDeadline\": \"\",\r\n    \"endContractDeadline\": \"\",\r\n    \"officePlace\": \"HN\",\r\n    \"officeName\": \"TDT\",\r\n    \"officePhone\": \"034-5432-675\",\r\n    \"officePrice\": 4000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/CarPark/BookingOfficeManager/add",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"CarPark",
+								"BookingOfficeManager",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add office 2",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"startContractDeadline\": \"\",\r\n    \"endContractDeadline\": \"\",\r\n    \"officePlace\": \"HN\",\r\n    \"officeName\": \"PVB\",\r\n    \"officePhone\": \"034-5432-675\",\r\n    \"officePrice\": 5000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/CarPark/BookingOfficeManager/add",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"CarPark",
+								"BookingOfficeManager",
+								"add"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
