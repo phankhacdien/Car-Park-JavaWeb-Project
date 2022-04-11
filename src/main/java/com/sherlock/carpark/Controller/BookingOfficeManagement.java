@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.Optional;
 
 
 @RestController
@@ -29,8 +30,10 @@ public class BookingOfficeManagement {
     }
 
     @GetMapping("/viewAllBookingList")
-    ResponseEntity<ResponseObject> viewAllBooking() {
-        return bookingService.findAllBooking();
+    ResponseEntity<ResponseObject> viewAllBooking(@RequestParam Optional<Integer> pageNo,
+                                                  @RequestParam Optional<String> sortBy,
+                                                  @RequestParam Optional<Integer> maxElementPerPage) {
+        return bookingService.findAllBooking(pageNo.orElse(0), sortBy.orElse("officeId"), maxElementPerPage.orElse(5));
     }
 
     @PutMapping("/selectTrip/{tripId}/for/{officeId}")

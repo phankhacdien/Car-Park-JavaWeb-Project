@@ -1,20 +1,19 @@
 package com.sherlock.carpark.Service.ServiceImp;
 
-import com.sherlock.carpark.DTO.RequestDTO.BookingOfficeRequestDTO;
 import com.sherlock.carpark.DTO.RequestDTO.TicketRequestDTO;
-import com.sherlock.carpark.DTO.ResponseDTO.BookingOfficeResponseDTO;
 import com.sherlock.carpark.DTO.ResponseDTO.TicketResponseDTO;
 import com.sherlock.carpark.Entity.*;
 import com.sherlock.carpark.Repository.TicketRepository;
 import com.sherlock.carpark.Service.iService.iTicketService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -42,8 +41,13 @@ public class TicketService implements iTicketService {
     }
 
     @Override
-    public ResponseEntity<ResponseObject> viewAllTicket() {
-        List<TicketResponseDTO> ticketList = ticketRepository.findAll().stream().map(this::convertToDTO).collect(Collectors.toList());
+    public ResponseEntity<ResponseObject> viewAllTicket(int pageNo, String sortBy, int maxElementPerPage) {
+        List<TicketResponseDTO> ticketList = ticketRepository
+                .findAll(PageRequest.of(pageNo, maxElementPerPage, Sort.Direction.ASC, sortBy)).getContent()
+                .stream()
+                .map(this::convertToDTO)
+                .collect(Collectors.toList());
+
         if(!ticketList.isEmpty()) {
             return ResponseEntity.status(HttpStatus.OK).body(
                     new ResponseObject("Ok", "Query All Tickets successfully", ticketList)

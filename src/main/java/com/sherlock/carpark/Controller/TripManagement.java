@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/CarPark/TripManager")
@@ -21,8 +22,10 @@ public class TripManagement {
     }
 
     @GetMapping("/view")
-    ResponseEntity<ResponseObject> viewTripList() {
-        return tripService.findTripList();
+    ResponseEntity<ResponseObject> viewTripList(@RequestParam Optional<Integer> pageNo,
+                                                @RequestParam Optional<String> sortBy,
+                                                @RequestParam Optional<Integer> maxElementPerPage) {
+        return tripService.findTripList(pageNo.orElse(0), sortBy.orElse("tripId"), maxElementPerPage.orElse(5));
     }
 
     @PostMapping("/add")

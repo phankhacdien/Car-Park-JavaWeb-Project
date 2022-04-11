@@ -2,13 +2,13 @@ package com.sherlock.carpark.Controller;
 
 import com.sherlock.carpark.DTO.RequestDTO.TicketRequestDTO;
 import com.sherlock.carpark.Entity.ResponseObject;
-import com.sherlock.carpark.Entity.Ticket;
 import com.sherlock.carpark.Service.iService.iTicketService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/CarPark/TicketManager")
@@ -22,8 +22,10 @@ public class TicketManagement {
     }
 
     @GetMapping("/view")
-    ResponseEntity<ResponseObject> ticketList() {
-        return ticketService.viewAllTicket();
+    ResponseEntity<ResponseObject> ticketList(@RequestParam Optional<Integer> pageNo,
+                                              @RequestParam Optional<String> sortBy,
+                                              @RequestParam Optional<Integer> maxElementPerPage) {
+        return ticketService.viewAllTicket(pageNo.orElse(0), sortBy.orElse("ticketId"), maxElementPerPage.orElse(5));
     }
 
     @PostMapping("/add")

@@ -8,6 +8,8 @@ import com.sherlock.carpark.Repository.ParkingLotRepository;
 import com.sherlock.carpark.Service.iService.iParkingLotService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -28,8 +30,13 @@ public class ParkingLotService implements iParkingLotService {
     }
 
     @Override
-    public ResponseEntity<ResponseObject> viewParkingLotList() {
-        List<ParkingLotResponseDTO> parkingLotList = parkingLotRepository.findAll().stream().map(this::convertToDTO).collect(Collectors.toList());
+    public ResponseEntity<ResponseObject> viewParkingLotList(int pageNo, String sortBy, int maxElementPerPage) {
+        List<ParkingLotResponseDTO> parkingLotList = parkingLotRepository
+                .findAll(PageRequest.of(pageNo, maxElementPerPage, Sort.Direction.ASC, sortBy)).getContent()
+                .stream()
+                .map(this::convertToDTO)
+                .collect(Collectors.toList());
+
         if(!parkingLotList.isEmpty()) {
             return ResponseEntity.status(HttpStatus.OK).body(
                     new ResponseObject("Ok", "Query All Parking Lots successfully", parkingLotList)

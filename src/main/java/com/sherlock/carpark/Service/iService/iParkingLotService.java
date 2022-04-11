@@ -7,7 +7,7 @@ import com.sherlock.carpark.Entity.ResponseObject;
 import org.springframework.http.ResponseEntity;
 
 public interface iParkingLotService {
-    public abstract ResponseEntity<ResponseObject> viewParkingLotList();
+    public abstract ResponseEntity<ResponseObject> viewParkingLotList(int pageNo, String sortBy, int maxElementPerPage);
     public abstract ResponseEntity<ResponseObject> saveParkingLot(ParkingLotRequestDTO newParkingLotDTO);
     public abstract ResponseEntity<ResponseObject> viewParkingLotById(int parkId);
     public abstract ParkingLot findParkingLotById(int parkId);

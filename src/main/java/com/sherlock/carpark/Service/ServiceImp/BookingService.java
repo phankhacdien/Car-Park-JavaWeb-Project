@@ -9,6 +9,8 @@ import com.sherlock.carpark.Repository.BookingOfficeRepository;
 import com.sherlock.carpark.Service.iService.iBookingService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -40,8 +42,13 @@ public class BookingService implements iBookingService {
     }
 
     @Override
-    public ResponseEntity<ResponseObject> findAllBooking() {
-        List<BookingOfficeResponseDTO> bookingOfficeList = bookingOfficeRepository.findAll().stream().map(this::convertToDTO).collect(Collectors.toList());
+    public ResponseEntity<ResponseObject> findAllBooking(int pageNo, String sortBy, int maxElementPerPage) {
+        List<BookingOfficeResponseDTO> bookingOfficeList = bookingOfficeRepository
+                .findAll(PageRequest.of(pageNo, maxElementPerPage, Sort.Direction.ASC, sortBy)).getContent()
+                .stream()
+                .map(this::convertToDTO)
+                .collect(Collectors.toList());
+
         if(!bookingOfficeList.isEmpty()) {
             return ResponseEntity.status(HttpStatus.OK).body(
                     new ResponseObject("Ok", "Query All Booking Offices successfully", bookingOfficeList)

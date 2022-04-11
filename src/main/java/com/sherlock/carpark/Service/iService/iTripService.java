@@ -7,7 +7,7 @@ import com.sherlock.carpark.Entity.Trip;
 import org.springframework.http.ResponseEntity;
 
 public interface iTripService {
-    public abstract ResponseEntity<ResponseObject> findTripList();
+    public abstract ResponseEntity<ResponseObject> findTripList(int pageNo, String sortBy, int maxElementPerPage);
     public abstract ResponseEntity<ResponseObject> saveTrip(TripRequestDTO newTripDTO);
     public abstract ResponseEntity<ResponseObject> viewTripById(int tripId);
     public abstract Trip findTripById(int tripId);

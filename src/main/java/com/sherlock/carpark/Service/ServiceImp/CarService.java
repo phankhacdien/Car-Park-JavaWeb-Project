@@ -12,6 +12,8 @@ import com.sherlock.carpark.Service.iService.iCarService;
 import com.sherlock.carpark.Service.iService.iParkingLotService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -35,8 +37,12 @@ public class CarService implements iCarService {
     }
 
     @Override
-    public ResponseEntity<ResponseObject> viewCarList() {
-        List<CarResponseDTO> carList = carRepository.findAll().stream().map(this::convertToDTO).collect(Collectors.toList());
+    public ResponseEntity<ResponseObject> viewCarList(int pageNo, String sortBy, int maxElementPerPage) {
+        List<CarResponseDTO> carList = carRepository
+                .findAll(PageRequest.of(pageNo, maxElementPerPage, Sort.Direction.ASC,sortBy)).getContent()
+                .stream()
+                .map(this::convertToDTO)
+                .collect(Collectors.toList());
         if(!carList.isEmpty()) {
             return ResponseEntity.status(HttpStatus.OK).body(
                     new ResponseObject("Ok", "Query All Cars successfully", carList)

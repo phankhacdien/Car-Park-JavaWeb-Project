@@ -7,7 +7,7 @@ import com.sherlock.carpark.Entity.ResponseObject;
 import org.springframework.http.ResponseEntity;
 
 public interface iCarService {
-    public abstract ResponseEntity<ResponseObject> viewCarList();
+    public abstract ResponseEntity<ResponseObject> viewCarList(int pageNo, String sortBy, int maxElementPerPage);
     public abstract ResponseEntity<ResponseObject> saveCar(CarRequestDTO newCarDTO);
     public abstract ResponseEntity<ResponseObject> assignParkingLotForCar(int parkId, String licensePlate);
     public abstract Car findCarByLicensePlate(String licensePlate);

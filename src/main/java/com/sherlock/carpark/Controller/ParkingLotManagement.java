@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/CarPark/ParkingLotManager")
@@ -28,7 +29,9 @@ public class ParkingLotManagement {
     }
 
     @GetMapping("/view")
-    ResponseEntity<ResponseObject> parkingLotList() {
-        return parkingLotService.viewParkingLotList();
+    ResponseEntity<ResponseObject> parkingLotList(@RequestParam Optional<Integer> pageNo,
+                                                  @RequestParam Optional<String> sortBy,
+                                                  @RequestParam Optional<Integer> maxElementPerPage) {
+        return parkingLotService.viewParkingLotList(pageNo.orElse(0), sortBy.orElse("parkId"), maxElementPerPage.orElse(5));
     }
 }

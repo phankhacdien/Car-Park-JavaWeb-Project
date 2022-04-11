@@ -8,6 +8,8 @@ import com.sherlock.carpark.Repository.TripRepository;
 import com.sherlock.carpark.Service.iService.iTripService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -28,8 +30,12 @@ public class TripService implements iTripService {
     }
 
     @Override
-    public ResponseEntity<ResponseObject> findTripList() {
-        List<TripResponseDTO> tripList = tripRepository.findAll().stream().map(this::convertToDTO).collect(Collectors.toList());
+    public ResponseEntity<ResponseObject> findTripList(int pageNo, String sortBy, int maxElementPerPage) {
+        List<TripResponseDTO> tripList = tripRepository
+                .findAll(PageRequest.of(pageNo, maxElementPerPage, Sort.Direction.ASC, sortBy)).getContent()
+                .stream()
+                .map(this::convertToDTO)
+                .collect(Collectors.toList());
         if(!tripList.isEmpty()) {
             return ResponseEntity.status(HttpStatus.OK).body(
                     new ResponseObject("Ok", "Query All Trips successfully", tripList)

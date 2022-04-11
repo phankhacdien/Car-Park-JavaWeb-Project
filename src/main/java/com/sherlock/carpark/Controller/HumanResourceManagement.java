@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/CarPark/HRM")
@@ -21,8 +22,10 @@ public class HumanResourceManagement {
     }
 
     @GetMapping("/viewAllEmployee")
-    ResponseEntity<ResponseObject> viewAllEmployee(@RequestParam int pageNo, @RequestParam String sortBy, @RequestParam int maxElementPerPage) {
-        return employeeService.findAllEmployee(pageNo, sortBy, maxElementPerPage);
+    ResponseEntity<ResponseObject> viewAllEmployee(@RequestParam Optional<Integer> pageNo,
+                                                   @RequestParam Optional<String> sortBy,
+                                                   @RequestParam Optional<Integer> maxElementPerPage) {
+        return employeeService.findAllEmployee(pageNo.orElse(0), sortBy.orElse("employeeId"), maxElementPerPage.orElse(1));
     }
 
     @PostMapping("/addEmployee")
