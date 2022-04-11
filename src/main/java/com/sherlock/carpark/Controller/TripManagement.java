@@ -1,18 +1,24 @@
 package com.sherlock.carpark.Controller;
 
+import com.sherlock.carpark.DTO.RequestDTO.TripRequestDTO;
 import com.sherlock.carpark.Entity.ResponseObject;
-import com.sherlock.carpark.Entity.Trip;
-import com.sherlock.carpark.Service.TripService;
+import com.sherlock.carpark.Service.iService.iTripService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
 
 @RestController
 @RequestMapping("/CarPark/TripManager")
 public class TripManagement {
 
+    private final iTripService tripService;
+
     @Autowired
-    TripService tripService;
+    public TripManagement(iTripService tripService) {
+        this.tripService = tripService;
+    }
 
     @GetMapping("/view")
     ResponseEntity<ResponseObject> viewTripList() {
@@ -20,12 +26,12 @@ public class TripManagement {
     }
 
     @PostMapping("/add")
-    ResponseEntity<ResponseObject> addTrip(@RequestBody Trip newTrip) {
-        return tripService.saveTrip(newTrip);
+    ResponseEntity<ResponseObject> addTrip(@Valid @RequestBody TripRequestDTO newTripDTO) {
+        return tripService.saveTrip(newTripDTO);
     }
 
     @GetMapping("/view/{tripId}")
     ResponseEntity<ResponseObject> viewTripById(@PathVariable int tripId) {
-        return tripService.findTripById(tripId);
+        return tripService.viewTripById(tripId);
     }
 }

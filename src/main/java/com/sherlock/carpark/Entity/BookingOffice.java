@@ -1,5 +1,6 @@
 package com.sherlock.carpark.Entity;
 
+import com.sherlock.carpark.Entity.Trip;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
