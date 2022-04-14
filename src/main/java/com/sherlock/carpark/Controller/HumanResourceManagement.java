@@ -25,12 +25,12 @@ public class HumanResourceManagement {
     ResponseEntity<ResponseObject> viewAllEmployee(@RequestParam Optional<Integer> pageNo,
                                                    @RequestParam Optional<String> sortBy,
                                                    @RequestParam Optional<Integer> maxElementPerPage) {
-        return employeeService.findAllEmployee(pageNo.orElse(0), sortBy.orElse("employeeId"), maxElementPerPage.orElse(1));
+        return employeeService.findAllEmployee(pageNo.orElse(0), sortBy.orElse("employeeId"), maxElementPerPage.orElse(2));
     }
 
     @PostMapping("/addEmployee")
     @ResponseBody
-    ResponseEntity<ResponseObject> addEmployee( @Valid @RequestBody EmployeeRequestDTO newEmployeeDTO) {
+    ResponseEntity<ResponseObject> addEmployee(@Valid @RequestBody EmployeeRequestDTO newEmployeeDTO) {
         return employeeService.saveEmployee(newEmployeeDTO);
     }
 
