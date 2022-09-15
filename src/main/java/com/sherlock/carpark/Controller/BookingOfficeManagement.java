@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.Optional;
 
-
 @RestController
 @RequestMapping("/CarPark/BookingOfficeManager")
 //"api/v1"
@@ -40,5 +39,4 @@ public class BookingOfficeManagement {
     ResponseEntity<ResponseObject> selectTripForBookingOffice(@PathVariable int tripId, @PathVariable int officeId) {
         return bookingService.assignTripForBookingOffice(tripId, officeId);
     }
-
 }
